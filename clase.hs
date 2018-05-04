@@ -79,6 +79,12 @@ potencias n = map (\x -> n^x) [0..]
 
 -- Listas por comprensión
 -- [salida | generadores, condiciones]
-numerosCondicionLoca n = [i | i <- [1..n], mod i 3 == mod i 5]
+-- El cuadrado + 1 de cada número cuyo módulo al dividir por 3 es igual a su módulo al dividir por 5
+numerosCondicionLoca n = [i^2 + 1 | i <- [1..n], mod i 3 == mod i 5]
+-- o su equivalente sin listas por comprensión
+numerosCondicionLoca' n = map ((+1).(^2)) (filter (\i -> mod i 3 == mod i 5) [1..n])
+
+-- Combinatoria
 combinacionesHasta n m = [(i,j) | i <- [1..n], j <- [1..m]]
+-- Combinatoria con condiciones
 combinacionesParImparHasta n m = [(i,j) | i <- [1..n], j <- [1..m], even i, odd j]
