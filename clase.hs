@@ -76,3 +76,9 @@ funcion3 a b c = funcion1 a (funcion2 b) + c
 -- Listas infinitas
 replicar n = (n:replicar n)
 potencias n = map (\x -> n^x) [0..]
+
+-- Listas por comprensión
+-- [salida | generadores, condiciones]
+numerosCondicionLoca n = [i | i <- [1..n], mod i 3 == mod i 5]
+combinacionesHasta n m = [(i,j) | i <- [1..n], j <- [1..m]]
+combinacionesParImparHasta n m = [(i,j) | i <- [1..n], j <- [1..m], even i, odd j]
